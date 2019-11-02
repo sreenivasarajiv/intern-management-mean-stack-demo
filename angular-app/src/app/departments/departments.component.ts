@@ -9,13 +9,22 @@ import { NgForm } from '@angular/forms';
 export class DepartmentsComponent implements OnInit {
 
   constructor() { }
+  
+  departments: {
+    name: string,
+    id: string
+  }[] = [];
 
   ngOnInit() {
   }
 
   submit(form: NgForm){
-    debugger
-    form.value.name
+    const value = form.control.get('name').value;;
+    form.control.get('name').setValue('');
+    this.departments.push({
+      id: Math.random().toString(),
+      name: value
+    })
   }
 
 }
