@@ -1,0 +1,11 @@
+<h2>Departments</h2>
+<hr/>
+<form class="form-inline" #depForm="ngForm" (submit)="submit(depForm)" >
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="name" class="sr-only">Department Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Department Name" required [(ngModel)]="name" name="name" >
+        <span style="color:red" *ngIf="name.errors.required">Name is required</span>
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Create</button>
+</form>
+<hr/>
