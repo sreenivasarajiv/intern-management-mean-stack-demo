@@ -36,3 +36,4 @@ Open Command Prompt or Terminal,
 2. Prevention is better than cure, **Unit tests and End-to-End tests could be added.**
 3. **Angular Material** could be added for better UI experiences 
 4. **NgRx Store could be added**, if **any need raise to increase the scale of the application** or make it as **entreprise software.**
+5. **Cordova or Electron or CefSharp/UWP** version could be implemented, so that we could **cover all major operating systems including mobile platform**
