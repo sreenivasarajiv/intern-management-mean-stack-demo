@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 
 const departments = require('./departments');
 
-mongoose.connect('mongodb://localhost/database1', {
+mongoose.connect('mongodb://heroku_6jhp5x90:hvjte0ijgk0nonfogianrq0a3p@ds241308.mlab.com:41308/heroku_6jhp5x90', {
     useNewUrlParser: true,
 	useUnifiedTopology: true
 })
@@ -17,6 +17,7 @@ mongoose.connect('mongodb://localhost/database1', {
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('../public'));
 
 app.use('/api/departments', departments)
 
