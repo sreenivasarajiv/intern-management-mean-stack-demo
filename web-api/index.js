@@ -17,7 +17,7 @@ mongoose.connect('mongodb://heroku_6jhp5x90:hvjte0ijgk0nonfogianrq0a3p@ds241308.
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('../public'));
+app.use(express.static('public'));
 
 app.use('/api/departments', departments)
 
