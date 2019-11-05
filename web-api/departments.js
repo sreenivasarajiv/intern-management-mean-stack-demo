@@ -10,11 +10,11 @@ const departmentSchema = mongoose.Schema({
     }
 })
 
-const Department = new mongoose.model('Department', departmentSchema);
+const Department = mongoose.model('Department', departmentSchema);
 
 router.get('/', async (req, res) => {
-   const departments = await Department.find();
-   res.json(departments);
+    const departments = await Department.find();
+    res.json(departments);
 })
 
 router.post('/', async (req, res) => {
@@ -23,6 +23,16 @@ router.post('/', async (req, res) => {
     });
     let result = await department.save();
     res.json(result);
+})
+
+router.put('/:id', async (req, res) => {
+    const department = await Department.findByIdAndUpdate(req.params.id, { name: req.body.name }, { new: true });
+    res.json(department);
+})
+
+router.delete('/:id', async (req, res) => {
+    const department = await Department.findByIdAndDelete(req.params.id);
+    res.json(department);
 })
 
 module.exports = router;

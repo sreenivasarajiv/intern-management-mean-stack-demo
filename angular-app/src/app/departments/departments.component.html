@@ -3,23 +3,24 @@
 <form class="form-inline" #depForm="ngForm" (submit)="submit(depForm)" >
     <div class="form-group mx-sm-3 mb-2">
         <label for="name" class="sr-only">Department Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Department Name" required [(ngModel)]="name" name="name" >
+        <input type="text" class="form-control" id="name" placeholder="Department Name" required [(ngModel)]="department.name" name="name" >
         <!-- <span style="color:red" *ngIf="depForm.name.required">Name is required</span> -->
     </div>
-    <button type="submit" [disabled]="depForm.invalid" class="btn btn-primary mb-2">Create</button>
+    <button type="submit" [disabled]="depForm.invalid" *ngIf="!editMode" class="btn btn-primary mb-2">Create</button>
+    <button type="button" [disabled]="depForm.invalid" *ngIf="editMode" class="btn btn-primary mb-2" (click)="saveEdit(depForm)" >Update</button>
 </form>
 <hr/>
 <ul class="list-group">
     <li *ngFor="let dep of departments" class="list-group-item d-flex justify-content-between align-items-center">
      {{ dep.name }}
       <div>
-        <span class="badge badge-primary badge-pill">
+        <button class="badge badge-primary badge-pill" (click)="editDepartment(dep)" >
             edit
-          </span>
+        </button>
           &nbsp;
-          <span class="badge badge-secondary badge-pill">
+          <button class="badge badge-secondary badge-pill" (click)="deleteDepartment(dep._id)" >
               delete
-          </span>
+          </button>
       </div>
     </li>
   </ul>

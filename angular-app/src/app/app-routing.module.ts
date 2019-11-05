@@ -7,7 +7,7 @@ import { DepartmentsComponent } from './departments/departments.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'interns',
+    redirectTo: 'departments',
     pathMatch: 'full'
   },
   {
