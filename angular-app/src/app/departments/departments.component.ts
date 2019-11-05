@@ -11,7 +11,7 @@ export class DepartmentsComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  apiBase: string = 'http://localhost:3000/api/departments';
+  apiBase: string = '/api/departments';
   editMode: boolean = false;
   department: Department = {
     name: '',
